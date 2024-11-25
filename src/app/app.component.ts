@@ -6,13 +6,14 @@ import { CentroComponent } from "./components/centros/centro/centro.component";
 import { ListaCentrosComponent } from './components/lista-centros/lista-centros.component';
 import { HeroeComponent } from './components/heroes/heroe/heroe.component';
 import { HeroeModule } from './components/heroe.module';
+import { DbzModule } from './dbz/dbz.module';
 @Component({
   selector: 'app-root',
   // imports: [RouterOutlet],
   standalone:true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [HeroeModule]
+  imports: [HeroeModule,DbzModule]
 })
 export class AppComponent {
   public title = 'Mi primera app de angular';
