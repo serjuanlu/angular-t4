@@ -1,0 +1,66 @@
+<h1>Centro</h1>
+<div class="row">
+  <div class="col-md-8"> <!-- El centro se muestra en 8 partes de la pantalla -->
+    <dl>
+      <img [src]="centro?.logo" alt="{{centro?.nombre}}" class="img-fluid" style="max-width: 250px;"> <!-- Imagen más grande -->
+      <dt>Nombre:</dt>
+      <dd>{{centro?.nombre}}</dd>
+      <dt>Localidad:</dt>
+      <dd>{{centro?.localidad}}</dd>
+      <dt>Familias profesionales:</dt>
+      <dd>{{centro?.familias?.join(', ')}}</dd>
+      <dt>CENTRO:</dt>
+      <dd>{{centro?.getCentroMayus()}}</dd>
+    </dl>
+
+    <div>
+      <button
+        (click)="anterior()"
+        [disabled]="lista.length === 0"
+        class="btn btn-primary">
+        Anterior
+      </button>
+
+      <button
+        (click)="siguiente()"
+        [disabled]="lista.length === 0"
+        class="btn btn-primary mx-2">
+        Siguiente
+      </button>
+
+      <button
+        (click)="sacarDeLista()"
+        [disabled]="lista.length === 0"
+        class="btn btn-danger mx-2">
+        Eliminar
+      </button>
+
+      <button
+        (click)="meterEnLista()"
+        [disabled]="pila.length === 0"
+        class="btn btn-success">
+        Insertar
+      </button>
+    </div>
+  </div>
+
+  <!-- Columna para la pila, a la derecha -->
+  <div class="col-md-4"> <!-- La pila ocupa 4 partes de la pantalla -->
+    <h2>Centros en la Pila</h2>
+    <!-- Tabla de centros en la pila -->
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Logo</th>
+          <th>Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let centro of pila">
+          <td><img [src]="centro.logo" alt="{{centro.nombre}}" class="img-fluid" style="max-width: 50px;"></td> <!-- Imagen más pequeña -->
+          <td>{{centro.nombre}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
