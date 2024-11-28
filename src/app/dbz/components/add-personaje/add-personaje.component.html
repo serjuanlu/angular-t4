@@ -1,6 +1,7 @@
 <div class="col">
   <h4>Añadir Personaje</h4>
-  <form class="row">
+  <!-- ngSubmit llama al metodo addPersonaje() de este componente -->
+  <form class="row" (ngSubmit)="addPersonaje()">
     <!-- /Input de nombre -->
     <input type="text"
     [(ngModel)]="personaje.nombre" name="nombre"
@@ -10,9 +11,10 @@
     <input type="text"
     [(ngModel)]="personaje.fuerza" name="fuerza"
     class="form-control mb-2" placeholder="Fuerza">
-    <button type="submit" (click)="addPersonaje()"
-    class="btn btn-primary">Añadir</button>
+    <button type="submit"
 
+    class="btn btn-primary">Añadir</button>
+    <!-- Borrado el (click), ya que hacemos uso de ngSubmit -->
     <pre>{{personaje|json}}</pre>
   </form>
 </div>

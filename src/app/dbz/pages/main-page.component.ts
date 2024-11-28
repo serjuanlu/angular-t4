@@ -17,4 +17,9 @@ export class MainPage  {
   }
 ];
 
+public onNewPersonaje(personaje:Personaje):void{
+  console.log('MainPage')
+  console.log(personaje)
+}
+
 }
