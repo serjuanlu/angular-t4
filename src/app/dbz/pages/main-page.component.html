@@ -2,13 +2,16 @@
 <hr>
 
 <div class="row">
-  <div class="col">
-    <h4>Listado</h4>
-    <dbz-lista [listaPersonajes] = "personajes"></dbz-lista>
-    <dbz-lista ></dbz-lista>
-  </div>
+<div class="col">
+<h4>Listado</h4>
+<dbz-lista [listaPersonajes] = "dbzService.personajes"
+(onEliminar)="eliminarPersonaje($event)">
+</dbz-lista>
+</div>
 
-  <div class="col">
-    <dbz-add-personaje (onNewPersonaje)="onNewPersonaje($event)"></dbz-add-personaje>
-  </div>
+<div class="col">
+<dbz-add-personaje
+(onNewPersonaje)="dbzService.onNewPersonaje($event)">
+</dbz-add-personaje>
+</div>
 </div>

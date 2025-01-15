@@ -1,21 +1,38 @@
-import { Component, Input } from '@angular/core';
-import { Personaje } from '../../interfaces/personaje.interface';
+import { Component, EventEmitter, Input, Output } from
+'@angular/core';
 
+import { Personaje } from
+'../../interfaces/personaje.interface';
 
 @Component({
-  selector: 'dbz-lista',
-  standalone:false,
-  templateUrl: './lista.component.html',
-  styleUrl: './lista.component.css'
+
+selector: 'dbz-lista',
+
+standalone:false,
+
+templateUrl: './lista.component.html',
+
+styleUrl: './lista.component.css'
+
 })
+
 export class ListaComponent {
-  @Input()
-  public listaPersonajes:Personaje[]=[{
-    nombre: 'Tenshian',
-    fuerza: 1600
-  },{
-    nombre:"Cojan",
-    fuerza:100000
-  }]
+
+// Recoje la lista
+
+@Input()
+
+public listaPersonajes:Personaje[]=[];
+
+@Output() onEliminar = new EventEmitter<string>();
+
+
+// Ahora simplemente emitimos el id del personaje a eliminar
+
+public eliminarPersonaje(id: string): void {
+
+this.onEliminar.emit(id);
+
+}
 
 }

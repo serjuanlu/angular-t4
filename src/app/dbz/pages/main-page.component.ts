@@ -1,25 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { Personaje } from '../interfaces/personaje.interface';
+
+import { Personaje } from
+'../interfaces/personaje.interface';
+
+import { DbzService } from '../services/dbz.service';
 
 @Component({
-  selector: 'app-dbz-main-page',
-  standalone: false,
-  templateUrl: 'main-page.component.html'
+
+selector: 'app-dbz-main-page',
+
+standalone: false,
+
+templateUrl: 'main-page.component.html'
+
 })
 
-export class MainPage  {
-  public personajes:Personaje[]=[{
-    nombre:'Kokun',
-    fuerza:1500
-  },{
-    nombre: 'Mr Satan',
-    fuerza: 50
-  }
-];
+export class MainPage {
 
-public onNewPersonaje(personaje:Personaje):void{
-  console.log('MainPage')
-  console.log(personaje)
-}
+// Llamamos al servicio
 
-}
+constructor(public dbzService: DbzService){}
+
+// Metodo para pasarle el id recibido al servicio
+
+public eliminarPersonaje(id: string): void {
+
+this.dbzService.deletePersonajeById(id); }}
